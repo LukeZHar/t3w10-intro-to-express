@@ -1,5 +1,7 @@
 const express = require('express');
 
+const router = require("../routes/users");
+
 // Instance of the express for configuration
 
 const app = express();
@@ -12,15 +14,8 @@ app.get("/", (req, res) => {
     // Function logic executed
     // res.send("<h1>Hello from express backend</h1>");
     // res.sendStatus(201);
-    res.status(500).send("<h1>Hello from express backend</h1>");
+    res.status(201).send("<h1>Hello from express backend</h1>");
     // res.download("./src/index.js");
-});
-
-app.get("/users", (req, res) => {
-    // Function logic executed
-    res.json({
-        message: "JSON response sent!"
-    });
 });
 
 app.post("/", (req, res) => {
@@ -29,6 +24,8 @@ app.post("/", (req, res) => {
         message: "POST Request made!"
     });
 })
+
+app.use("/users", router);
 
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
