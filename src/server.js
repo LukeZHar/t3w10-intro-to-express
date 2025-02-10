@@ -9,6 +9,9 @@ const {timing} = require("./middlewares/timing")
 // Instance of the express for configuration
 const app = express();
 
+// Configure  the app instance for using JSON body data - Parse JSON payloads
+app.use(express.json());
+
 // How to use a middleware
 // instance.verb(routePath, middleware, finalMiddleware)
 
